@@ -1,0 +1,7 @@
+# ----------------------------
+# Minestore-BungeeCord by abhi
+# version 1.0
+# ----------------------------
+
+# Websocket port to get orders.
+Websocket-port: 25565
