@@ -13,10 +13,11 @@ import java.net.Socket;
 public class CommandHandler implements Runnable{
     private ServerSocket websocket;
     private MineStore plugin;
+    private String websocket_password;
 
-
-    public CommandHandler(MineStore plugin,int port)throws Exception{
+    public CommandHandler(MineStore plugin,int port,String websocket_password)throws Exception{
         this.plugin = plugin;
+        this.websocket_password = websocket_password;
         websocket = new ServerSocket(port);
     }
     public void run(){
@@ -30,10 +31,14 @@ public class CommandHandler implements Runnable{
 
             final ByteArrayDataOutput sendcontent = ByteStreams.newDataOutput();
             sendcontent.writeUTF(pass[1]);
-            for(ServerInfo server : plugin.getProxy().getServers().values()){
-                server.sendData("my:minestore",sendcontent.toByteArray());
+            if(pass[0].equalsIgnoreCase(websocket_password)) {
+                for (ServerInfo server : plugin.getProxy().getServers().values()) {
+                    server.sendData("my:minestore", sendcontent.toByteArray());
+                }
+                plugin.getLogger().info("Send Order To Minestore-Spigot/Bukkit plugin!");
+            }else {
+                plugin.getLogger().info("Unable to send order to Minestore-Spigot/Bukkit plugin.(ERROR: Invalid password)");
             }
-            plugin.getLogger().info("Send Order To Minestore-Spigot/Bukkit!");
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -6,12 +6,10 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
-import sun.dc.pr.PRError;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +23,8 @@ public class MineStore extends Plugin {
         try{
           LoadConfig();
           int port = config.getInt("Websocket-port");
-          getProxy().getScheduler().schedule(this,new CommandHandler(this,port),2,2, TimeUnit.MILLISECONDS);
+          String password = config.getString("Websocket-password");
+          getProxy().getScheduler().schedule(this,new CommandHandler(this,port,password),2,2, TimeUnit.MILLISECONDS);
         }catch (Exception e){
             e.printStackTrace();
         }

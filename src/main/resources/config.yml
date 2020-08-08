@@ -5,3 +5,6 @@
 
 # Websocket port to get orders.
 Websocket-port: 25565
+
+# Websocket password this password is required for website to run command
+Websocket-password: "Mypassword"
