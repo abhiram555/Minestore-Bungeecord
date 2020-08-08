@@ -4,8 +4,6 @@ import com.abhiram.minestore.MineStore;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.connection.Server;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
