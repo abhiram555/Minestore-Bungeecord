@@ -29,8 +29,18 @@ public class CommandHandler implements Runnable{
 
             final String[] pass = content.split("  ");
 
+            // Check if there is any command
+            if(pass.length == 1){
+                plugin.getLogger().info("Got an order from minestore but unable to send it because there are no commands");
+                return;
+            }
+
+
             final ByteArrayDataOutput sendcontent = ByteStreams.newDataOutput();
             sendcontent.writeUTF(pass[1]);
+
+            // plugin.getLogger().info("Debug mode password : " + pass[0] + " Command: " + pass[1]);
+
             if(pass[0].equalsIgnoreCase(websocket_password)) {
                 for (ServerInfo server : plugin.getProxy().getServers().values()) {
                     server.sendData("my:minestore", sendcontent.toByteArray());
