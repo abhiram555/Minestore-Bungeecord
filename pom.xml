@@ -6,7 +6,7 @@
 
     <groupId>io.guthub.abhiram555</groupId>
     <artifactId>Minestore-Bungeecord</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
     <build>
         <plugins>
             <plugin>
@@ -41,6 +41,18 @@
             <version>1.16-R0.2-SNAPSHOT</version>
             <type>javadoc</type>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.42.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
         </dependency>
     </dependencies>
 </project>

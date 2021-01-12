@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+@Deprecated
 public class CommandHandler implements Runnable{
     private ServerSocket websocket;
     private MineStore plugin;
